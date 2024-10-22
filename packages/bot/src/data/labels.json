@@ -1,0 +1,117 @@
+[
+	{
+		"id": 1,
+		"availability": ["individual"],
+		"displayName": "Game Dev",
+		"labelID": "game-dev",
+		"requiresVerification": false
+	},
+	{
+		"id": 2,
+		"availability": [
+			"individual",
+			"organization"
+		],
+		"displayName": "Games Archival",
+		"labelID": "game-archivist",
+		"requiresVerification": false
+	},
+	{
+		"id": 3,
+		"availability": [
+			"individual",
+			"organization"
+		],
+		"displayName": "Games Business",
+		"labelID": "game-business",
+		"requiresVerification": false
+	},
+	{
+		"id": 4,
+		"availability": [
+			"individual",
+			"organization"
+		],
+		"displayName": "Games Education",
+		"labelID": "game-educator",
+		"requiresVerification": false
+	},
+	{
+		"id": 5,
+		"availability": [
+			"individual",
+			"organization"
+		],
+		"displayName": "Games Media",
+		"labelID": "game-media",
+		"requiresVerification": false
+	},
+	{
+		"id": 6,
+		"availability": [
+			"individual",
+			"organization"
+		],
+		"displayName": "Games Organization",
+		"labelID": "game-organizer",
+		"requiresVerification": false
+	},
+	{
+		"id": 7,
+		"availability": [
+			"individual",
+			"organization"
+		],
+		"displayName": "Games Research",
+		"labelID": "game-research",
+		"requiresVerification": false
+	},
+	{
+		"id": 8,
+		"availability": ["game"],
+		"displayName": "Game",
+		"labelID": "game",
+		"requiresVerification": true,
+		"verificationTemplate": "verify-game"
+	},
+	{
+		"id": 9,
+		"availability": ["organization"],
+		"displayName": "Game Studio",
+		"labelID": "game-studio",
+		"requiresVerification": true,
+		"verificationTemplate": "verify-studio"
+	},
+	{
+		"id": 10,
+		"displayName": "Games Event",
+		"labelID": "game-event",
+		"requiresVerification": true,
+		"availability": ["organization"],
+		"verificationTemplate": "verify-event"
+	},
+	{
+		"id": 11,
+		"availability": ["individual"],
+		"displayName": "Games Journalist",
+		"labelID": "game-journalist",
+		"requiresVerification": true,
+		"verificationTemplate": "verify-journalist"
+	},
+	{
+		"id": 12,
+		"availability": ["organization"],
+		"displayName": "Games Publication",
+		"labelID": "game-publication",
+		"requiresVerification": true,
+		"verificationTemplate": "verify-publication"
+	},
+	{
+		"id": 13,
+		"availability": ["organization"],
+		"displayName": "Games Publisher",
+		"labelID": "game-publisher",
+		"requiresVerification": true,
+		"verificationTemplate": "verify-publisher"
+	}
+]

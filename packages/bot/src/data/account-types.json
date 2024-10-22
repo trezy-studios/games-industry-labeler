@@ -1,0 +1,17 @@
+[
+	{
+		"id": "1",
+		"displayName": "Individual",
+		"labelID": "individual"
+	},
+	{
+		"id": "2",
+		"displayName": "Organization",
+		"labelID": "organization"
+	},
+	{
+		"id": "3",
+		"displayName": "Game",
+		"labelID": "game"
+	}
+]

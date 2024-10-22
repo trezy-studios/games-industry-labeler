@@ -1,0 +1,53 @@
+version: '3.9'
+
+services:
+  caddy:
+    container_name: caddy
+    image: caddy:2
+    network_mode: host
+    depends_on:
+      - labeler
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /games-industry-labeler/caddy/data
+        target: /data
+      - type: bind
+        source: /games-industry-labeler/caddy/etc/caddy
+        target: /etc/caddy
+    labels:
+      - 'com.centurylinklabs.watchtower.enable=true'
+
+  bot:
+    build: ../bot
+    container_name: bot
+    network_mode: host
+    restart: unless-stopped
+    env_file:
+      - /games-industry-labeler/bot.env
+    labels:
+      - 'com.centurylinklabs.watchtower.enable=true'
+
+  labeler:
+    build: ../labeler
+    container_name: labeler
+    network_mode: host
+    restart: unless-stopped
+    env_file:
+      - /games-industry-labeler/labeler.env
+    labels:
+      - 'com.centurylinklabs.watchtower.enable=true'
+
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower:latest
+    network_mode: host
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    restart: unless-stopped
+    environment:
+      WATCHTOWER_CLEANUP: true
+      WATCHTOWER_SCHEDULE: '@midnight'
+      WATCHTOWER_LABEL_ENABLE: true

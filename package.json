@@ -1,0 +1,7 @@
+{
+  "name": "@games-industry-labeler/monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
