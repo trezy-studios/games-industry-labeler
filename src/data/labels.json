@@ -12,8 +12,8 @@
 			"individual",
 			"organization"
 		],
-		"displayName": "Games Archival",
-		"labelID": "game-archivist",
+		"displayName": "Games Archivist",
+		"labelID": "games-archivist",
 		"requiresVerification": false
 	},
 	{
@@ -23,7 +23,7 @@
 			"organization"
 		],
 		"displayName": "Games Business",
-		"labelID": "game-business",
+		"labelID": "games-business",
 		"requiresVerification": false
 	},
 	{
@@ -33,7 +33,7 @@
 			"organization"
 		],
 		"displayName": "Games Education",
-		"labelID": "game-educator",
+		"labelID": "games-educator",
 		"requiresVerification": false
 	},
 	{
@@ -43,7 +43,7 @@
 			"organization"
 		],
 		"displayName": "Games Media",
-		"labelID": "game-media",
+		"labelID": "games-media",
 		"requiresVerification": false
 	},
 	{
@@ -53,7 +53,7 @@
 			"organization"
 		],
 		"displayName": "Games Organization",
-		"labelID": "game-organizer",
+		"labelID": "games-organizer",
 		"requiresVerification": false
 	},
 	{
@@ -63,7 +63,7 @@
 			"organization"
 		],
 		"displayName": "Games Research",
-		"labelID": "game-research",
+		"labelID": "games-research",
 		"requiresVerification": false
 	},
 	{
@@ -85,7 +85,7 @@
 	{
 		"id": 10,
 		"displayName": "Games Event",
-		"labelID": "game-event",
+		"labelID": "games-event",
 		"requiresVerification": true,
 		"availability": ["organization"],
 		"verificationTemplate": "verify-event"
@@ -94,7 +94,7 @@
 		"id": 11,
 		"availability": ["individual"],
 		"displayName": "Games Journalist",
-		"labelID": "game-journalist",
+		"labelID": "games-journalist",
 		"requiresVerification": true,
 		"verificationTemplate": "verify-journalist"
 	},
@@ -102,7 +102,7 @@
 		"id": 12,
 		"availability": ["organization"],
 		"displayName": "Games Publication",
-		"labelID": "game-publication",
+		"labelID": "games-publication",
 		"requiresVerification": true,
 		"verificationTemplate": "verify-publication"
 	},
@@ -110,7 +110,7 @@
 		"id": 13,
 		"availability": ["organization"],
 		"displayName": "Games Publisher",
-		"labelID": "game-publisher",
+		"labelID": "games-publisher",
 		"requiresVerification": true,
 		"verificationTemplate": "verify-publisher"
 	}
