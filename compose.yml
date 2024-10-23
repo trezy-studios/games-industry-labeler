@@ -28,6 +28,9 @@ services:
     labels:
       - 'com.centurylinklabs.watchtower.enable=true'
     volumes:
+      - type: bind
+        source: /games-industry-labeler/database
+        target: /etc/database
       - ./packages/bot:/app/packages/bot
 
   labeler:
@@ -42,6 +45,9 @@ services:
     labels:
       - 'com.centurylinklabs.watchtower.enable=true'
     volumes:
+      - type: bind
+        source: /games-industry-labeler/database
+        target: /etc/database
       - ./packages/labeler:/app/packages/labeler
 
   watchtower:

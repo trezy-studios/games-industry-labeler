@@ -7,7 +7,7 @@ import path from 'path'
 
 
 const server = new LabelerServer({
-	dbPath: path.join(process.cwd(), 'bot.db'),
+	dbPath: process.env.DATABASE_PATH!,
 	did: process.env.LABELER_DID!,
 	signingKey: process.env.SIGNING_KEY!,
 })

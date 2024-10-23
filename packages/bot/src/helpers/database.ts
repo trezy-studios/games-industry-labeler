@@ -8,6 +8,6 @@ import path from 'node:path'
 
 // Variables
 export const database = new Database(
-	path.join(process.cwd(), 'bot.db'),
+	process.env.DATABASE_PATH!,
 	{ create: true },
 )
