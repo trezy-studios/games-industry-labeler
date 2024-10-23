@@ -1,13 +1,16 @@
 // Module imports
-import { type Conversation } from '@skyware/bot'
+import {
+	type Conversation,
+	type Profile,
+} from '@skyware/bot'
 
 
 
 
 
 // Local imports
+import { createModerationReport } from './createModerationReport'
 import { type DBConvo } from '../typedefs/DBConvo'
-import { getVerification } from './getVerification'
 import { sendMessages } from './sendMessages'
 import { renderTemplate } from './renderTemplate'
 import { setConvoState } from './setConvoState'
@@ -16,12 +19,13 @@ import { setConvoState } from './setConvoState'
 
 
 
-export async function handleVerificationRequest(convo: Conversation, convoState: DBConvo) {
-	const verification = getVerification(convoState)
-
-	if (verification.length) {
+export async function handleVerificationRequest(user: Profile, convo: Conversation, convoState: DBConvo) {
+	if (convoState.verification?.length) {
 		convoState.state = 'verification-in-progress'
 		await sendMessages(convo, await renderTemplate('verification-in-progress'))
+
+		await createModerationReport(user.did, convoState)
+
 		setConvoState(convoState)
 	} else {
 		await sendMessages(convo, await renderTemplate('missing-verification'))

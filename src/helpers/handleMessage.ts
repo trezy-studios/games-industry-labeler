@@ -11,13 +11,13 @@ import { handleFirstMessage } from './handleFirstMessage'
 import { logger } from './logger'
 import { sendMessages } from './sendMessages'
 import { renderTemplate } from './renderTemplate'
-import { saveVerification } from './saveVerification'
 import { handleStartConversation } from './handleStartConversation'
 import { handleCancelConversation } from './handleCancelConversation'
 import { handleConfirmCancelConversation } from './handleConfirmCancelConversation'
 import { handleSelectLabels } from './handleSelectLabels'
 import { handleVerificationRequest } from './handleVerificationRequest'
 import { handleSelectAccountType } from './handleSelectAccountType'
+import { setConvoState } from './setConvoState'
 
 
 
@@ -55,9 +55,12 @@ export async function handleMessage(message: ChatMessage) {
 		await handleSelectLabels(parsedMessage, sender, convo, convoState)
 	} else if (convoState.state === 'awaiting-verification') {
 		if (parsedMessage === 'verify') {
-			await handleVerificationRequest(convo, convoState)
+			await handleVerificationRequest(sender, convo, convoState)
 		} else {
-			saveVerification(convoState, message.text)
+			const verification = new Set(convoState.verification ?? [])
+			verification.add(message.text)
+			convoState.verification = Array.from(verification)
+			setConvoState(convoState)
 		}
 	} else if (convoState.state === 'verification-in-progress') {
 		await sendMessages(convo, await renderTemplate('impatient'))

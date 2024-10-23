@@ -58,6 +58,7 @@ export async function handleSelectLabels(parsedMessage: string, user: Profile, c
 	}
 
 	convoState.state = 'applying-labels'
+	convoState.verifiedLabels = verifiedLabels.map(verifiedLabel => verifiedLabel.labelID)
 	setConvoState(convoState)
 
 	const allRecognisedLabels = recognisedLabels.concat(verifiedLabels)
@@ -75,12 +76,14 @@ export async function handleSelectLabels(parsedMessage: string, user: Profile, c
 
 	await sendMessages(convo, messages)
 
-	await user.labelAccount(recognisedLabels.map(recognisedLabel => recognisedLabel.labelID))
+	if (recognisedLabels.length) {
+		await user.labelAccount(recognisedLabels.map(recognisedLabel => recognisedLabel.labelID))
 
-	await sendMessages(convo, await renderTemplate('labels-applied-success', {
-		hasMultipleLabels: recognisedLabels.length > 1,
-		labels: recognisedLabels,
-	}))
+		await sendMessages(convo, await renderTemplate('labels-applied-success', {
+			hasMultipleLabels: recognisedLabels.length > 1,
+			labels: recognisedLabels,
+		}))
+	}
 
 	let deleteConvoState = false
 

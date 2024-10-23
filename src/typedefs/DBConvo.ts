@@ -15,4 +15,6 @@ export interface DBConvo {
 		| 'applying-labels'
 		| 'awaiting-verification'
 		| 'verification-in-progress',
+	verification?: string[],
+	verifiedLabels?: string[],
 }

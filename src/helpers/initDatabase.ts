@@ -37,7 +37,8 @@ export function initDatabase() {
 						'verification-in-progress'
 					)
 				),
-				verification TEXT CHECK (json_valid(verification) OR verification IS NULL)
+				verification TEXT CHECK (json_valid(verification) OR verification IS NULL),
+				verifiedLabels TEXT CHECK (json_valid(verifiedLabels) OR verifiedLabels IS NULL)
 			);
 		`)
 		.run()
