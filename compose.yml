@@ -18,7 +18,7 @@ services:
 
   bot:
     build:
-      dockerfile: ./packages/bot
+      dockerfile: ./packages/bot/Dockerfile
       context: .
     container_name: bot
     network_mode: host
@@ -32,7 +32,7 @@ services:
 
   labeler:
     build:
-      dockerfile: ./packages/labeler
+      dockerfile: ./packages/labeler/Dockerfile
       context: .
     container_name: labeler
     network_mode: host
