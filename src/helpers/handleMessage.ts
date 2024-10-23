@@ -52,7 +52,7 @@ export async function handleMessage(message: ChatMessage) {
 	} else if (convoState.state === 'selecting-account-type') {
 		await handleSelectAccountType(parsedMessage, convo, convoState)
 	} else if (convoState.state === 'selecting-labels') {
-		await handleSelectLabels(parsedMessage, convo, convoState)
+		await handleSelectLabels(parsedMessage, sender, convo, convoState)
 	} else if (convoState.state === 'awaiting-verification') {
 		if (parsedMessage === 'verify') {
 			await handleVerificationRequest(convo, convoState)

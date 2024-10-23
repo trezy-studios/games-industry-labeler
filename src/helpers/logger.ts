@@ -5,6 +5,12 @@ let currentDepth = 0
 
 
 
+function error(...args: any[]) {
+	const prefix = Array(currentDepth).fill('\t').join('')
+
+	console.error(prefix, ...args)
+}
+
 function log(...args: any[]) {
 	const prefix = Array(currentDepth).fill('\t').join('')
 
@@ -26,7 +32,8 @@ function groupEnd() {
 }
 
 export const logger = {
-	log,
+	error,
 	group,
 	groupEnd,
+	log,
 }

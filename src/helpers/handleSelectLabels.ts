@@ -1,5 +1,8 @@
 // Module imports
-import { type Conversation } from '@skyware/bot'
+import {
+	type Conversation,
+	type Profile,
+} from '@skyware/bot'
 
 
 
@@ -18,7 +21,7 @@ import { setConvoState } from './setConvoState'
 
 
 
-export async function handleSelectLabels(parsedMessage: string, convo: Conversation, convoState: DBConvo) {
+export async function handleSelectLabels(parsedMessage: string, user: Profile, convo: Conversation, convoState: DBConvo) {
 	const selectedLabels = parsedMessage
 		.replace(/\s/g, '')
 		.split(',')
@@ -72,7 +75,7 @@ export async function handleSelectLabels(parsedMessage: string, convo: Conversat
 
 	await sendMessages(convo, messages)
 
-	// TODO: Apply labels
+	await user.labelAccount(recognisedLabels.map(recognisedLabel => recognisedLabel.labelID))
 
 	await sendMessages(convo, await renderTemplate('labels-applied-success', {
 		hasMultipleLabels: recognisedLabels.length > 1,

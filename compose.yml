@@ -1,65 +1,12 @@
 services:
-  caddy:
-    container_name: caddy
-    image: caddy:2
-    network_mode: host
-    depends_on:
-      - labeler
-    restart: unless-stopped
-    volumes:
-      - type: bind
-        source: /games-industry-labeler/caddy/data
-        target: /data
-      - type: bind
-        source: /games-industry-labeler/caddy/etc/caddy
-        target: /etc/caddy
-    labels:
-      - 'com.centurylinklabs.watchtower.enable=true'
-
-  bot:
-    build:
-      dockerfile: ./packages/bot/Dockerfile
-      context: .
-    container_name: bot
-    network_mode: host
-    restart: unless-stopped
-    env_file:
-      - /games-industry-labeler/bot.env
-    labels:
-      - 'com.centurylinklabs.watchtower.enable=true'
-    volumes:
-      - type: bind
-        source: /games-industry-labeler/database
-        target: /etc/database
-      - ./packages/bot:/app/packages/bot
-
   labeler:
     build:
-      dockerfile: ./packages/labeler/Dockerfile
+      dockerfile: ./Dockerfile
       context: .
-    container_name: labeler
-    network_mode: host
     restart: unless-stopped
     env_file:
-      - /games-industry-labeler/labeler.env
-    labels:
-      - 'com.centurylinklabs.watchtower.enable=true'
+      - /games-industry-labeler/.env
     volumes:
       - type: bind
         source: /games-industry-labeler/database
         target: /etc/database
-      - ./packages/labeler:/app/packages/labeler
-
-  watchtower:
-    container_name: watchtower
-    image: containrrr/watchtower:latest
-    network_mode: host
-    volumes:
-      - type: bind
-        source: /var/run/docker.sock
-        target: /var/run/docker.sock
-    restart: unless-stopped
-    environment:
-      WATCHTOWER_CLEANUP: true
-      WATCHTOWER_SCHEDULE: '@midnight'
-      WATCHTOWER_LABEL_ENABLE: true
