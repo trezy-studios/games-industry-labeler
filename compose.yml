@@ -17,7 +17,9 @@ services:
       - 'com.centurylinklabs.watchtower.enable=true'
 
   bot:
-    build: ../bot
+    build:
+      dockerfile: ../bot
+      context: .
     container_name: bot
     network_mode: host
     restart: unless-stopped
@@ -25,9 +27,13 @@ services:
       - /games-industry-labeler/bot.env
     labels:
       - 'com.centurylinklabs.watchtower.enable=true'
+    volumes:
+      - ./packages/bot:/app/packages/bot
 
   labeler:
-    build: ../labeler
+    build:
+      dockerfile: ../labeler
+      context: .
     container_name: labeler
     network_mode: host
     restart: unless-stopped
@@ -35,6 +41,8 @@ services:
       - /games-industry-labeler/labeler.env
     labels:
       - 'com.centurylinklabs.watchtower.enable=true'
+    volumes:
+      - ./packages/labeler:/app/packages/labeler
 
   watchtower:
     container_name: watchtower
