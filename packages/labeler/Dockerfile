@@ -29,4 +29,4 @@ COPY --from=prerelease /usr/src .
 # run the app
 ENV PORT=3000
 USER bun
-ENTRYPOINT [ "bun", "run", "src/index.ts" ]
+ENTRYPOINT [ "bun", "run", "packages/labeler/src/index.ts" ]

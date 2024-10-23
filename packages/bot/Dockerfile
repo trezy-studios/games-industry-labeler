@@ -28,4 +28,4 @@ COPY --from=prerelease /usr/src .
 
 # run the app
 USER bun
-ENTRYPOINT [ "bun", "run", "src/index.ts" ]
+ENTRYPOINT [ "bun", "run", "packages/bot/src/index.ts" ]
