@@ -9,7 +9,7 @@ export function initDatabase() {
 	database.exec('PRAGMA journal_mode = WAL;')
 
 	database
-		.query(`
+		.prepare(`
 			CREATE TABLE IF NOT EXISTS sessions (
 				accessJwt TEXT NOT NULL,
 				active BOOLEAN NOT NULL,
@@ -24,7 +24,7 @@ export function initDatabase() {
 		.run()
 
 	database
-		.query(`
+		.prepare(`
 			CREATE TABLE IF NOT EXISTS convos (
 				attemptingCancellation BOOLEAN,
 				id TEXT NOT NULL PRIMARY KEY,

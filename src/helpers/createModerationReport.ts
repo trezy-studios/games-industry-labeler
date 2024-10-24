@@ -19,7 +19,7 @@ export async function createModerationReport(did: `did:${string}`, convoState: D
 		.call('com.atproto.moderation.createReport', {
 			data: {
 				reasonType: 'com.atproto.moderation.defs#reasonOther',
-				reason: `Labels: ${convoState.verifiedLabels!.join(' | ')}\n\nVerification: ${convoState.verification!.join(' | ')}`,
+				reason: `Labels: ${convoState.verifiedLabels!.join(' | ')} ||||| Verification: ${convoState.verification!.join(' | ')}`,
 				subject: {
 					$type: 'com.atproto.admin.defs#repoRef',
 					did,
