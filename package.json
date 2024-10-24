@@ -7,6 +7,7 @@
     "start": "bun run src/index.ts"
   },
   "dependencies": {
+    "@atcute/client": "^2.0.3",
     "@skyware/bot": "^0.3.4",
     "dotenv": "^16.4.5",
     "handlebars": "^4.7.8",

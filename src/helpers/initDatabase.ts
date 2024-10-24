@@ -18,11 +18,11 @@ export function initDatabase() {
 				emailConfirmed BOOLEAN,
 				emailAuthFactor BOOLEAN,
 				handle TEXT NOT NULL,
-				refreshJwt TEXT NOT NULL,
-				status TEXT
+				refreshJwt TEXT NOT NULL
 			);
 		`)
 		.run()
+
 	database
 		.query(`
 			CREATE TABLE IF NOT EXISTS convos (

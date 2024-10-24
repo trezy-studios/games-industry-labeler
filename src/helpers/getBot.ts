@@ -1,5 +1,14 @@
+// Module imports
+import { type AtpSessionData } from '@atcute/client'
+
+
+
+
+
 // Local imports
 import { Bot } from '@skyware/bot'
+import { getSession } from './getSession'
+import { saveSession } from './saveSession'
 
 
 
@@ -22,10 +31,18 @@ export async function getBot() {
 			},
 		})
 
-		await bot.login({
-			identifier: process.env.LABELER_USERNAME!,
-			password: process.env.LABELER_PASSWORD!,
-		})
+		let session = getSession()
+
+		if (session) {
+			session = await bot.resumeSession(session) as AtpSessionData
+		} else {
+			session = await bot.login({
+				identifier: process.env.LABELER_USERNAME!,
+				password: process.env.LABELER_PASSWORD!,
+			}) as AtpSessionData
+		}
+
+		saveSession(session as unknown as AtpSessionData)
 	}
 
 	return bot
