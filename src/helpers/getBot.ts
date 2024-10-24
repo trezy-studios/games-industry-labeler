@@ -26,9 +26,6 @@ export async function getBot() {
 		bot = new Bot({
 			emitChatEvents: true,
 			emitEvents: false,
-			eventEmitterOptions: {
-				pollingInterval: 1,
-			},
 		})
 
 		let session = getSession()
