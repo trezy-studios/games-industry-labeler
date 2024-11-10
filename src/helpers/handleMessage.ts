@@ -18,6 +18,7 @@ import { handleSelectLabels } from './handleSelectLabels'
 import { handleVerificationRequest } from './handleVerificationRequest'
 import { handleSelectAccountType } from './handleSelectAccountType'
 import { setConvoState } from './setConvoState'
+import { unparseMessage } from './unparseMessage'
 
 
 
@@ -58,7 +59,7 @@ export async function handleMessage(message: ChatMessage) {
 			await handleVerificationRequest(sender, convo, convoState)
 		} else {
 			const verification = new Set(convoState.verification ?? [])
-			verification.add(message.text)
+			verification.add(unparseMessage(message))
 			convoState.verification = Array.from(verification)
 			setConvoState(convoState)
 		}
