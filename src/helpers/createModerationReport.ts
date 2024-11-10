@@ -6,14 +6,8 @@ import { getBot } from './getBot'
 
 
 
-// Constants
-const bot = await getBot()
-
-
-
-
-
 export async function createModerationReport(did: `did:${string}`, convoState: DBConvo) {
+	const bot = await getBot()
 	return bot.agent
 		.withProxy('atproto_labeler', 'did:plc:dsae6lz5garrdkbicuor4chs')
 		.call('com.atproto.moderation.createReport', {
