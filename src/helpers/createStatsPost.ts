@@ -1,6 +1,6 @@
 // Local imports
 import { getBot } from './getBot'
-import labels from '../data/labels.json' with { type: 'json' }
+import { LABEL_DEFINITIONS } from '../data/LABEL_DEFINITIONS'
 import { renderTemplate } from './renderTemplate'
 import { queryOzoneDatabase } from './queryOzoneDatabase'
 
@@ -35,13 +35,7 @@ export async function createStatsPost() {
 		ORDER BY total_count DESC
 	`)
 
-	const labelStats = labels.reduce((
-		accumulator: {
-			nonVerified: LabelStatDefinition[],
-			verified: LabelStatDefinition[],
-		},
-		labelDefinition,
-	) => {
+	const labelStats = LABEL_DEFINITIONS.reduce((accumulator, labelDefinition) => {
 		const labelData = result!.rows.find(row => row.val === labelDefinition.labelID)
 
 		const labelStatDefinition: LabelStatDefinition = {
@@ -59,8 +53,8 @@ export async function createStatsPost() {
 
 		return accumulator
 	}, {
-		nonVerified: [],
-		verified: [],
+		nonVerified: [] as LabelStatDefinition[],
+		verified: [] as LabelStatDefinition[],
 	})
 
 	const [nonVerifiedPostText] = await renderTemplate('en', 'labeling-stats-post-nonverified', {

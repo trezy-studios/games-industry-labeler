@@ -1,13 +1,13 @@
 // Local imports
 import { type AccountTypeDefinition } from '../typedefs/AccountTypeDefinition'
-import labels from '../data/labels.json' with { type: 'json' }
+import { LABEL_DEFINITIONS } from '../data/LABEL_DEFINITIONS'
 
 
 
 
 
 export function getLabelsForAccountType(accountType: AccountTypeDefinition) {
-	return labels.filter(label => {
-		return label.availability.includes(accountType.labelID)
+	return LABEL_DEFINITIONS.filter(labelDefinition => {
+		return labelDefinition.availability.includes(accountType.labelID)
 	})
 }

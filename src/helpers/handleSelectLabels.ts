@@ -11,8 +11,8 @@ import {
 // Local imports
 import { type DBConvo } from '../typedefs/DBConvo'
 import { inProgressApplications } from './metrics'
-import { type LabelData } from '../typedefs/LabelData'
-import labels from '../data/labels.json' with { type: 'json' }
+import { type LabelDefinition } from '../typedefs/LabelDefinition'
+import { LABEL_DEFINITIONS } from '../data/LABEL_DEFINITIONS'
 import { logger } from './logger'
 import { sendMessages } from './sendMessages'
 import { renderTemplate } from './renderTemplate'
@@ -33,7 +33,7 @@ export async function handleSelectLabels(parsedMessage: string, user: Profile, c
 		unrecognisedLabels,
 		verifiedLabels,
 	} = selectedLabels.reduce((accumulator, labelID) => {
-		const label = (labels as unknown as LabelData[]).find(label => label.id === labelID)
+		const label = LABEL_DEFINITIONS.find(label => label.id === labelID)
 
 		if (label) {
 			if (label.requiresVerification) {
@@ -47,9 +47,9 @@ export async function handleSelectLabels(parsedMessage: string, user: Profile, c
 
 		return accumulator
 	}, {
-		recognisedLabels: [] as LabelData[],
+		recognisedLabels: [] as LabelDefinition[],
 		unrecognisedLabels: [] as number[],
-		verifiedLabels: [] as LabelData[],
+		verifiedLabels: [] as LabelDefinition[],
 	})
 
 	if (!recognisedLabels.length && !verifiedLabels.length) {

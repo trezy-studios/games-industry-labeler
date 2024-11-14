@@ -1,15 +1,19 @@
 // Local imports
 import { type AccountType } from './AccountType'
+import { type SupportedLanguageCodes } from './SupportedLanguageCodes'
 
 
 
 
 
-export type LabelData = {
+export type LabelDefinition = {
 	availability: AccountType[],
-	displayName: string,
 	id: number,
 	labelID: string,
+	locales: {
+		displayName: string,
+		lang: SupportedLanguageCodes,
+	}[],
 	requiresVerification: boolean,
 	verificationTemplate?: string,
 }

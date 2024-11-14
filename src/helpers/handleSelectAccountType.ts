@@ -6,8 +6,7 @@ import { type Conversation } from '@skyware/bot'
 
 
 // Local imports
-import { type AccountTypeDefinition } from '../typedefs/AccountTypeDefinition'
-import accountTypes from '../data/account-types.json' with { type: 'json' }
+import { ACCOUNT_TYPE_DEFINITIONS } from '../data/ACCOUNT_TYPE_DEFINITIONS'
 import { type DBConvo } from '../typedefs/DBConvo'
 import { getLabelsForAccountType } from './getLabelsForAccountType'
 import { logger } from './logger'
@@ -20,7 +19,7 @@ import { setConvoState } from './setConvoState'
 
 
 export async function handleSelectAccountType(parsedMessage: string, convo: Conversation, convoState: DBConvo) {
-	const accountType = (accountTypes as unknown as AccountTypeDefinition[]).find(item => item.id === parsedMessage.trim())
+	const accountType = ACCOUNT_TYPE_DEFINITIONS.find(item => item.id === parsedMessage.trim())
 
 	if (accountType) {
 		logger.log('Selecting labels...')
@@ -33,6 +32,6 @@ export async function handleSelectAccountType(parsedMessage: string, convo: Conv
 		await sendMessages(convo, messages)
 		logger.log('Waiting for response.')
 	} else {
-		await sendMessages(convo, await renderTemplate('en', 'unrecognised-account-type', { accountTypes }))
+		await sendMessages(convo, await renderTemplate('en', 'unrecognised-account-type', { accountTypes: ACCOUNT_TYPE_DEFINITIONS }))
 	}
 }
