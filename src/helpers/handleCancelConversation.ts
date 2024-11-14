@@ -17,7 +17,7 @@ import { setConvoState } from './setConvoState'
 
 export async function handleCancelConversation(convo: Conversation, convoState: DBConvo) {
 	convoState.attemptingCancellation = true
-	await sendMessages(convo, await renderTemplate('attempting-cancellation'))
+	await sendMessages(convo, await renderTemplate('en', 'attempting-cancellation'))
 
 	setConvoState(convoState)
 }

@@ -22,12 +22,12 @@ import { setConvoState } from './setConvoState'
 export async function handleVerificationRequest(user: Profile, convo: Conversation, convoState: DBConvo) {
 	if (convoState.verification?.length) {
 		convoState.state = 'verification-in-progress'
-		await sendMessages(convo, await renderTemplate('verification-in-progress'))
+		await sendMessages(convo, await renderTemplate('en', 'verification-in-progress'))
 
 		await createModerationReport(user.did, convoState)
 
 		setConvoState(convoState)
 	} else {
-		await sendMessages(convo, await renderTemplate('missing-verification'))
+		await sendMessages(convo, await renderTemplate('en', 'missing-verification'))
 	}
 }

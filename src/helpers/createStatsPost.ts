@@ -45,7 +45,7 @@ export async function createStatsPost() {
 		const labelData = result!.rows.find(row => row.val === labelDefinition.labelID)
 
 		const labelStatDefinition: LabelStatDefinition = {
-			displayName: labelDefinition.displayName,
+			displayName: labelDefinition.locales.find(locale => locale.lang === 'en')!.displayName,
 			h24Count: labelData.h24_count,
 			totalCount: labelData.total_count,
 			show24Hour: labelData.h24_count > 0
@@ -63,10 +63,10 @@ export async function createStatsPost() {
 		verified: [],
 	})
 
-	const [nonVerifiedPostText] = await renderTemplate('labeling-stats-post-nonverified', {
+	const [nonVerifiedPostText] = await renderTemplate('en', 'labeling-stats-post-nonverified', {
 		labelStats: labelStats.nonVerified,
 	})
-	const [verifiedPostText] = await renderTemplate('labeling-stats-post-verified', {
+	const [verifiedPostText] = await renderTemplate('en', 'labeling-stats-post-verified', {
 		labelStats: labelStats.verified,
 	})
 

@@ -20,7 +20,7 @@ export async function handleFirstMessage(convo: Conversation) {
 	inProgressApplications.inc()
 
 	logger.log('Sending greeting...')
-	const messages = await renderTemplate('greeting')
+	const messages = await renderTemplate('en', 'greeting')
 	await sendMessages(convo, messages)
 	logger.log('Done.')
 

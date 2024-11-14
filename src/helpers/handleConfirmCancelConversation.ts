@@ -16,6 +16,6 @@ import { setConvoState } from './setConvoState'
 
 
 export async function handleConfirmCancelConversation(convo: Conversation, convoState: DBConvo) {
-	await sendMessages(convo, await renderTemplate('cancelling'))
+	await sendMessages(convo, await renderTemplate('en', 'cancelling'))
 	setConvoState(convoState, true)
 }

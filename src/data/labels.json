@@ -2,7 +2,12 @@
 	{
 		"id": 1,
 		"availability": ["individual"],
-		"displayName": "Game Dev",
+		"locales": [
+			{
+				"displayName": "Game Dev",
+				"lang": "en"
+			}
+		],
 		"labelID": "game-dev",
 		"requiresVerification": false
 	},
@@ -12,7 +17,12 @@
 			"individual",
 			"organization"
 		],
-		"displayName": "Games Archivist",
+		"locales": [
+			{
+				"displayName": "Games Archivist",
+				"lang": "en"
+			}
+		],
 		"labelID": "games-archivist",
 		"requiresVerification": false
 	},
@@ -22,7 +32,12 @@
 			"individual",
 			"organization"
 		],
-		"displayName": "Games Business",
+		"locales": [
+			{
+				"displayName": "Games Business",
+				"lang": "en"
+			}
+		],
 		"labelID": "games-business",
 		"requiresVerification": false
 	},
@@ -32,7 +47,12 @@
 			"individual",
 			"organization"
 		],
-		"displayName": "Games Education",
+		"locales": [
+			{
+				"displayName": "Games Educator",
+				"lang": "en"
+			}
+		],
 		"labelID": "games-educator",
 		"requiresVerification": false
 	},
@@ -42,7 +62,12 @@
 			"individual",
 			"organization"
 		],
-		"displayName": "Games Media",
+		"locales": [
+			{
+				"displayName": "Games Media",
+				"lang": "en"
+			}
+		],
 		"labelID": "games-media",
 		"requiresVerification": false
 	},
@@ -52,7 +77,12 @@
 			"individual",
 			"organization"
 		],
-		"displayName": "Games Organization",
+		"locales": [
+			{
+				"displayName": "Games Organizer",
+				"lang": "en"
+			}
+		],
 		"labelID": "games-organizer",
 		"requiresVerification": false
 	},
@@ -62,14 +92,24 @@
 			"individual",
 			"organization"
 		],
-		"displayName": "Games Research",
+		"locales": [
+			{
+				"displayName": "Games Research",
+				"lang": "en"
+			}
+		],
 		"labelID": "games-research",
 		"requiresVerification": false
 	},
 	{
 		"id": 8,
 		"availability": ["game"],
-		"displayName": "Game",
+		"locales": [
+			{
+				"displayName": "Game",
+				"lang": "en"
+			}
+		],
 		"labelID": "game",
 		"requiresVerification": true,
 		"verificationTemplate": "verify-game"
@@ -77,14 +117,24 @@
 	{
 		"id": 9,
 		"availability": ["organization"],
-		"displayName": "Game Studio",
+		"locales": [
+			{
+				"displayName": "Game Studio",
+				"lang": "en"
+			}
+		],
 		"labelID": "game-studio",
 		"requiresVerification": true,
 		"verificationTemplate": "verify-studio"
 	},
 	{
 		"id": 10,
-		"displayName": "Games Event",
+		"locales": [
+			{
+				"displayName": "Games Event",
+				"lang": "en"
+			}
+		],
 		"labelID": "games-event",
 		"requiresVerification": true,
 		"availability": ["organization"],
@@ -93,7 +143,12 @@
 	{
 		"id": 11,
 		"availability": ["individual"],
-		"displayName": "Games Journalist",
+		"locales": [
+			{
+				"displayName": "Games Journalist",
+				"lang": "en"
+			}
+		],
 		"labelID": "games-journalist",
 		"requiresVerification": true,
 		"verificationTemplate": "verify-journalist"
@@ -101,7 +156,12 @@
 	{
 		"id": 12,
 		"availability": ["organization"],
-		"displayName": "Games Publication",
+		"locales": [
+			{
+				"displayName": "Games Publication",
+				"lang": "en"
+			}
+		],
 		"labelID": "games-publication",
 		"requiresVerification": true,
 		"verificationTemplate": "verify-publication"
@@ -109,7 +169,12 @@
 	{
 		"id": 13,
 		"availability": ["organization"],
-		"displayName": "Games Publisher",
+		"locales": [
+			{
+				"displayName": "Games Publisher",
+				"lang": "en"
+			}
+		],
 		"labelID": "games-publisher",
 		"requiresVerification": true,
 		"verificationTemplate": "verify-publisher"

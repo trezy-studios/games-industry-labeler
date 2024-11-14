@@ -1,17 +1,32 @@
 [
 	{
 		"id": "1",
-		"displayName": "Individual",
+		"locales": [
+			{
+				"displayName": "Individual",
+				"lang": "en"
+			}
+		],
 		"labelID": "individual"
 	},
 	{
 		"id": "2",
-		"displayName": "Organization",
+		"locales": [
+			{
+				"displayName": "Organization",
+				"lang": "en"
+			}
+		],
 		"labelID": "organization"
 	},
 	{
 		"id": "3",
-		"displayName": "Game",
+		"locales": [
+			{
+				"displayName": "Game",
+				"lang": "en"
+			}
+		],
 		"labelID": "game"
 	}
 ]

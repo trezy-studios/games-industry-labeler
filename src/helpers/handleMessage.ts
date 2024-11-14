@@ -67,7 +67,7 @@ export async function handleMessage(message: ChatMessage) {
 			setConvoState(convoState)
 		}
 	} else if (convoState.state === 'verification-in-progress') {
-		await sendMessages(convo, await renderTemplate('impatient'))
+		await sendMessages(convo, await renderTemplate('en', 'impatient'))
 	} else {
 		logger.log('Message parsed; nothing for us to do.')
 	}

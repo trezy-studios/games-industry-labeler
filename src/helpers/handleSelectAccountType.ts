@@ -27,13 +27,12 @@ export async function handleSelectAccountType(parsedMessage: string, convo: Conv
 		convoState.accountType = accountType.labelID
 		convoState.state = 'selecting-labels'
 		setConvoState(convoState)
-		const messages = await renderTemplate('selecting-labels', {
+		const messages = await renderTemplate('en', 'selecting-labels', {
 			labels: getLabelsForAccountType(accountType),
 		})
 		await sendMessages(convo, messages)
 		logger.log('Waiting for response.')
 	} else {
-		await sendMessages(convo, await renderTemplate('unrecognised-account-type', { accountTypes }))
+		await sendMessages(convo, await renderTemplate('en', 'unrecognised-account-type', { accountTypes }))
 	}
-
 }

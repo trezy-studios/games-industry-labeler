@@ -1,5 +1,6 @@
 // Local imports
 import { type AccountType } from './AccountType'
+import { type SupportedLanguageCodes } from './SupportedLanguageCodes'
 
 
 
@@ -7,6 +8,9 @@ import { type AccountType } from './AccountType'
 
 export interface AccountTypeDefinition {
 	id: '1' | '2' | '3',
-	displayName: string,
 	labelID: AccountType,
+	locales: {
+		displayName: string,
+		lang: SupportedLanguageCodes,
+	}[],
 }

@@ -64,7 +64,7 @@ export async function handleSelectLabels(parsedMessage: string, user: Profile, c
 
 	const allRecognisedLabels = recognisedLabels.concat(verifiedLabels)
 
-	let messages = await renderTemplate('selected-labels', {
+	let messages = await renderTemplate('en', 'selected-labels', {
 		hasMultipleLabels: allRecognisedLabels.length > 1,
 		labels: allRecognisedLabels,
 		hasMultipleUnrecognisedLabels: unrecognisedLabels.length > 1,
@@ -72,7 +72,7 @@ export async function handleSelectLabels(parsedMessage: string, user: Profile, c
 	})
 
 	if (recognisedLabels.length) {
-		messages = messages.concat(await renderTemplate('applying-labels', { labels: recognisedLabels }))
+		messages = messages.concat(await renderTemplate('en', 'applying-labels', { labels: recognisedLabels }))
 	}
 
 	await sendMessages(convo, messages)
@@ -80,7 +80,7 @@ export async function handleSelectLabels(parsedMessage: string, user: Profile, c
 	if (recognisedLabels.length) {
 		await user.labelAccount(recognisedLabels.map(recognisedLabel => recognisedLabel.labelID))
 
-		await sendMessages(convo, await renderTemplate('labels-applied-success', {
+		await sendMessages(convo, await renderTemplate('en', 'labels-applied-success', {
 			hasMultipleLabels: recognisedLabels.length > 1,
 			labels: recognisedLabels,
 		}))
@@ -90,7 +90,7 @@ export async function handleSelectLabels(parsedMessage: string, user: Profile, c
 
 	if (verifiedLabels.length) {
 		convoState.state = 'awaiting-verification'
-		await sendMessages(convo, await renderTemplate('awaiting-verification', {
+		await sendMessages(convo, await renderTemplate('en', 'awaiting-verification', {
 			includesJournalist: verifiedLabels.some(label => label.labelID === 'games-journalist'),
 		}))
 	} else {

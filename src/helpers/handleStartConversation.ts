@@ -20,7 +20,7 @@ import { setConvoState } from './setConvoState'
 export async function handleStartConversation(convo: Conversation, convoState: DBConvo) {
 	logger.log('Selecting account type...')
 	convoState.state = 'selecting-account-type'
-	const messages = await renderTemplate('select-account-type', { accountTypes })
+	const messages = await renderTemplate('en', 'select-account-type', { accountTypes })
 	await sendMessages(convo, messages)
 	logger.log('Waiting for response.')
 

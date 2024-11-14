@@ -2,6 +2,7 @@
 import fs from 'node:fs/promises'
 import Handlebars from 'handlebars'
 import path from 'node:path'
+import { type SupportedLanguageCodes } from '../typedefs/SupportedLanguageCodes'
 
 
 
@@ -15,9 +16,11 @@ const TEMPLATE_PATH = path.join(process.cwd(), 'src', 'templates')
 
 
 
-export async function renderTemplate(templateName: string, data: Record<string, unknown> = {}) {
+export async function renderTemplate(languageCode: SupportedLanguageCodes, baseTemplateName: string, data: Record<string, unknown> = {}) {
+	const templateName = `${baseTemplateName}.${languageCode}.hbs`
+
 	if (!TEMPLATE_CACHE.has(templateName)) {
-		const templateFilePath = path.join(TEMPLATE_PATH, `${templateName.replace(/\.hbs$/, '')}.hbs`)
+		const templateFilePath = path.join(TEMPLATE_PATH, templateName)
 		const templateFileString = await fs.readFile(templateFilePath, 'utf8')
 		const compiledTemplate = templateFileString
 			.split('---')
@@ -29,5 +32,7 @@ export async function renderTemplate(templateName: string, data: Record<string, 
 
 	return TEMPLATE_CACHE
 		.get(templateName)!
-		.map((templateItem: HandlebarsTemplateDelegate) => templateItem(data))
+		.map((templateItem: HandlebarsTemplateDelegate) => {
+			return templateItem(data)
+		})
 }
