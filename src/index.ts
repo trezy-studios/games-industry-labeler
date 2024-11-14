@@ -1,4 +1,5 @@
 // Local imports
+import { collectDefaultMetrics } from 'prom-client'
 import { getBot } from './helpers/getBot'
 import { handleMessage } from './helpers/handleMessage'
 import { initDatabase } from './helpers/initDatabase'
@@ -7,6 +8,9 @@ import { logger } from './helpers/logger'
 
 
 
+
+logger.group('Starting metrics collection...')
+collectDefaultMetrics()
 
 logger.group('Initialising database...')
 initDatabase()

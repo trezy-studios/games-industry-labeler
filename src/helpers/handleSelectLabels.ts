@@ -10,6 +10,7 @@ import {
 
 // Local imports
 import { type DBConvo } from '../typedefs/DBConvo'
+import { inProgressApplications } from './metrics'
 import { type LabelData } from '../typedefs/LabelData'
 import labels from '../data/labels.json' with { type: 'json' }
 import { logger } from './logger'
@@ -93,6 +94,7 @@ export async function handleSelectLabels(parsedMessage: string, user: Profile, c
 			includesJournalist: verifiedLabels.some(label => label.labelID === 'games-journalist'),
 		}))
 	} else {
+		inProgressApplications.dec()
 		deleteConvoState = true
 	}
 

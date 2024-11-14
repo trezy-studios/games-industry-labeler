@@ -17,6 +17,7 @@ import { handleConfirmCancelConversation } from './handleConfirmCancelConversati
 import { handleSelectLabels } from './handleSelectLabels'
 import { handleVerificationRequest } from './handleVerificationRequest'
 import { handleSelectAccountType } from './handleSelectAccountType'
+import { messageCounter } from './metrics'
 import { setConvoState } from './setConvoState'
 import { unparseMessage } from './unparseMessage'
 
@@ -36,6 +37,8 @@ export async function handleMessage(message: ChatMessage) {
 	if (!convo) {
 		return
 	}
+
+	messageCounter.inc()
 
 	logger.group(`Received message from ${sender.displayName} (${sender.handle})`)
 
