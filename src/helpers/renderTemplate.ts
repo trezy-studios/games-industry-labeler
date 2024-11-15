@@ -1,6 +1,7 @@
 // Module imports
 import fs from 'node:fs/promises'
 import Handlebars from 'handlebars'
+import { localiseTemplateData } from './localiseTemplateData'
 import path from 'node:path'
 import { type SupportedLanguageCodes } from '../typedefs/SupportedLanguageCodes'
 
@@ -33,6 +34,6 @@ export async function renderTemplate(languageCode: SupportedLanguageCodes, baseT
 	return TEMPLATE_CACHE
 		.get(templateName)!
 		.map((templateItem: HandlebarsTemplateDelegate) => {
-			return templateItem(data)
+			return templateItem(localiseTemplateData('en', data))
 		})
 }
