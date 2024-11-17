@@ -21,5 +21,8 @@ const bot = await getBot()
 
 logger.log('Listening for messages...')
 bot.on('message', handleMessage)
+bot.on('error', (error) => {
+	console.error(error)
+})
 
 startStatsPostScheduler()
