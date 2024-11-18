@@ -18,6 +18,8 @@ export function initDatabase() {
 				emailConfirmed BOOLEAN,
 				emailAuthFactor BOOLEAN,
 				handle TEXT NOT NULL,
+				inactiveStatus TEXT,
+				pdsUri TEXT,
 				refreshJwt TEXT NOT NULL
 			);
 		`)

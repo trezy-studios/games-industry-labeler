@@ -30,9 +30,14 @@ export async function getBot() {
 
 		let session = getSession()
 
-		if (session) {
+		try {
+			if (!session) {
+				throw new Error('No session available to resume.')
+			}
+
 			session = await bot.resumeSession(session) as AtpSessionData
-		} else {
+		} catch (error) {
+			console.log('No session to resume; logging in...')
 			session = await bot.login({
 				identifier: process.env.LABELER_USERNAME!,
 				password: process.env.LABELER_PASSWORD!,

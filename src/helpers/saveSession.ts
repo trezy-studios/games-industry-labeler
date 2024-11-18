@@ -26,6 +26,8 @@ export function saveSession(session: AtpSessionData) {
       emailConfirmed,
       emailAuthFactor,
       handle,
+      inactiveStatus,
+      pdsUri,
       refreshJwt
     ) VALUES (
       $accessJwt,
@@ -35,6 +37,8 @@ export function saveSession(session: AtpSessionData) {
       $emailConfirmed,
       $emailAuthFactor,
       $handle,
+      $inactiveStatus,
+      $pdsUri,
       $refreshJwt
     );
   `)
@@ -47,6 +51,8 @@ export function saveSession(session: AtpSessionData) {
     $emailConfirmed: session.emailConfirmed ?? false,
     $emailAuthFactor: session.emailAuthFactor ?? false,
     $handle: session.handle,
+    $inactiveStatus: session.inactiveStatus ?? null,
+    $pdsUri: session.pdsUri ?? null,
     $refreshJwt: session.refreshJwt,
   })
 }
