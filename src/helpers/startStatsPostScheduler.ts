@@ -14,7 +14,7 @@ import { createStatsPost } from './createStatsPost'
 
 export function startStatsPostScheduler() {
 	new CronJob(
-		'0 0 10 * * *',
+		'0 0 22 * * *',
 		createStatsPost,
 		null,
 		true,
