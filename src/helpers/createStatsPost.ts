@@ -60,11 +60,22 @@ export async function createStatsPost() {
 	const [nonVerifiedPostText] = await renderTemplate('en', 'labeling-stats-post-nonverified', {
 		labelStats: labelStats.nonVerified,
 	})
+
+	const firstPost = await bot.post({ text: nonVerifiedPostText })
+
 	const [verifiedPostText] = await renderTemplate('en', 'labeling-stats-post-verified', {
 		labelStats: labelStats.verified,
 	})
 
-	const firstPost = await bot.post({ text: nonVerifiedPostText })
+	const secondPost = await firstPost.reply({ text: verifiedPostText })
 
-	await firstPost.reply({ text: verifiedPostText })
+	const [callToActionPostText] = await renderTemplate('en', 'labeling-stats-post-call-to-action')
+
+	await secondPost.reply({
+		quoted: {
+			cid: 'bafyreihn3ny5u4l6lj4y4fw32rr2nkysxr5wz2nbsaurquufcrh5crepam',
+			uri: 'at://did:plc:4jrld6fwpnwqehtce56qshzv/app.bsky.feed.post/3l77hzmlqb626',
+		},
+		text: callToActionPostText,
+	})
 }
