@@ -10,6 +10,7 @@ export type LabelDefinition = {
 	availability: AccountType[],
 	id: number,
 	labelID: string,
+	listUri: `at://did:plc:${string}`
 	locales: {
 		displayName: string,
 		lang: SupportedLanguageCodes,

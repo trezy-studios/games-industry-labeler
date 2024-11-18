@@ -10,6 +10,7 @@ import {
 
 // Local imports
 import { type DBConvo } from '../typedefs/DBConvo'
+import { getBot } from './getBot'
 import { inProgressApplications } from './metrics'
 import { type LabelDefinition } from '../typedefs/LabelDefinition'
 import { LABEL_DEFINITIONS } from '../data/LABEL_DEFINITIONS'
@@ -23,6 +24,8 @@ import { setConvoState } from './setConvoState'
 
 
 export async function handleSelectLabels(parsedMessage: string, user: Profile, convo: Conversation, convoState: DBConvo) {
+	const bot = await getBot()
+
 	const selectedLabels = parsedMessage
 		.replace(/\s/g, '')
 		.split(',')
@@ -79,6 +82,21 @@ export async function handleSelectLabels(parsedMessage: string, user: Profile, c
 
 	if (recognisedLabels.length) {
 		await user.labelAccount(recognisedLabels.map(recognisedLabel => recognisedLabel.labelID))
+
+		await bot.agent.call('com.atproto.repo.applyWrites', {
+			data: {
+				repo: bot.profile.did,
+				writes: recognisedLabels.map(recognisedLabel => ({
+					$type: 'com.atproto.repo.applyWrites#create',
+					collection: 'app.bsky.graph.listitem',
+					value: {
+						createdAt: new Date().toISOString(),
+						list: recognisedLabel.listUri,
+						subject: user.did,
+					},
+				})),
+			},
+		})
 
 		await sendMessages(convo, await renderTemplate('en', 'labels-applied-success', {
 			hasMultipleLabels: recognisedLabels.length > 1,

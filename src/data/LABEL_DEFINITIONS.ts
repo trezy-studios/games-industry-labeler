@@ -9,13 +9,14 @@ export const LABEL_DEFINITIONS: LabelDefinition[] = [
 	{
 		id: 1,
 		availability: ['individual'],
+		labelID: 'game-dev',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbatijgiol2a',
 		locales: [
 			{
 				displayName: 'Game Dev',
 				lang: 'en',
 			},
 		],
-		labelID: 'game-dev',
 		requiresVerification: false,
 	},
 	{
@@ -24,13 +25,14 @@ export const LABEL_DEFINITIONS: LabelDefinition[] = [
 			'individual',
 			'organization',
 		],
+		labelID: 'games-archivist',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbati7fwpu2n',
 		locales: [
 			{
 				displayName: 'Games Archivist',
 				lang: 'en',
 			},
 		],
-		labelID: 'games-archivist',
 		requiresVerification: false,
 	},
 	{
@@ -39,13 +41,14 @@ export const LABEL_DEFINITIONS: LabelDefinition[] = [
 			'individual',
 			'organization',
 		],
+		labelID: 'games-business',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbathwfcvh2h',
 		locales: [
 			{
 				displayName: 'Games Business',
 				lang: 'en',
 			},
 		],
-		labelID: 'games-business',
 		requiresVerification: false,
 	},
 	{
@@ -54,13 +57,14 @@ export const LABEL_DEFINITIONS: LabelDefinition[] = [
 			'individual',
 			'organization',
 		],
+		labelID: 'games-educator',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbathlnou527',
 		locales: [
 			{
 				displayName: 'Games Educator',
 				lang: 'en',
 			},
 		],
-		labelID: 'games-educator',
 		requiresVerification: false,
 	},
 	{
@@ -69,13 +73,14 @@ export const LABEL_DEFINITIONS: LabelDefinition[] = [
 			'individual',
 			'organization',
 		],
+		labelID: 'games-media',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbathbitsf2k',
 		locales: [
 			{
 				displayName: 'Games Media',
 				lang: 'en',
 			},
 		],
-		labelID: 'games-media',
 		requiresVerification: false,
 	},
 	{
@@ -84,13 +89,14 @@ export const LABEL_DEFINITIONS: LabelDefinition[] = [
 			'individual',
 			'organization',
 		],
+		labelID: 'games-organizer',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbatgw74bl2t',
 		locales: [
 			{
 				displayName: 'Games Organizer',
 				lang: 'en',
 			},
 		],
-		labelID: 'games-organizer',
 		requiresVerification: false,
 	},
 	{
@@ -99,50 +105,54 @@ export const LABEL_DEFINITIONS: LabelDefinition[] = [
 			'individual',
 			'organization',
 		],
+		labelID: 'games-research',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbatgkp3hu2w',
 		locales: [
 			{
 				displayName: 'Games Research',
 				lang: 'en',
 			},
 		],
-		labelID: 'games-research',
 		requiresVerification: false,
 	},
 	{
 		id: 8,
 		availability: ['game'],
+		labelID: 'game',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbatg3uasa2z',
 		locales: [
 			{
 				displayName: 'Game',
 				lang: 'en',
 			},
 		],
-		labelID: 'game',
 		requiresVerification: true,
 		verificationTemplate: 'verify-game',
 	},
 	{
 		id: 9,
 		availability: ['organization'],
+		labelID: 'game-studio',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbatfihfgp2t',
 		locales: [
 			{
 				displayName: 'Game Studio',
 				lang: 'en',
 			},
 		],
-		labelID: 'game-studio',
 		requiresVerification: true,
 		verificationTemplate: 'verify-studio',
 	},
 	{
 		id: 10,
+		labelID: 'games-event',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbatenzf2624',
 		locales: [
 			{
 				displayName: 'Games Event',
 				lang: 'en',
 			},
 		],
-		labelID: 'games-event',
 		requiresVerification: true,
 		availability: ['organization'],
 		verificationTemplate: 'verify-event',
@@ -150,39 +160,42 @@ export const LABEL_DEFINITIONS: LabelDefinition[] = [
 	{
 		id: 11,
 		availability: ['individual'],
+		labelID: 'games-journalist',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbatdcme6c2n',
 		locales: [
 			{
 				displayName: 'Games Journalist',
 				lang: 'en',
 			},
 		],
-		labelID: 'games-journalist',
 		requiresVerification: true,
 		verificationTemplate: 'verify-journalist',
 	},
 	{
 		id: 12,
 		availability: ['organization'],
+		labelID: 'games-publication',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbatc77g672z',
 		locales: [
 			{
 				displayName: 'Games Publication',
 				lang: 'en',
 			},
 		],
-		labelID: 'games-publication',
 		requiresVerification: true,
 		verificationTemplate: 'verify-publication',
 	},
 	{
 		id: 13,
 		availability: ['organization'],
+		labelID: 'games-publisher',
+		listUri: 'at://did:plc:dsae6lz5garrdkbicuor4chs/app.bsky.graph.list/3lbatb4cb7c2n',
 		locales: [
 			{
 				displayName: 'Games Publisher',
 				lang: 'en',
 			},
 		],
-		labelID: 'games-publisher',
 		requiresVerification: true,
 		verificationTemplate: 'verify-publisher',
 	},
